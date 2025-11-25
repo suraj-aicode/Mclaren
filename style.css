@@ -1,0 +1,456 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #00c2de;
+}
+
+body{
+    background-color: #000000;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    z-index: 1000;
+}
+
+header::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    height: 5px;
+    width: 40%;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+header .year {
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 800;
+    margin-top: 40px;
+}
+
+header .menu{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: url(menu-3-fill.png) no-repeat center;
+    background-size: 30px;
+    filter: invert(1);
+    cursor: pointer;
+
+}
+
+header .menu.active {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: url(close-line.png) no-repeat center;
+    background-size: 30px;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Navigation */
+.nav {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    right: 100px;
+    width: 30%;
+    height: 5px;
+    border-bottom: 5px solid;
+    border-image: linear-gradient(90deg,
+        transparent,
+        var(--primary-color),
+        var(--primary-color)
+    )
+    30;
+    background: transparent;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    transition: 1s;
+    transform-origin: right;
+
+}
+    
+.nav.active {
+    top : 100px;
+    width: 40%;
+    height: 100px;
+    border-top: 5px solid;
+    border-bottom: none;
+    border-image: linear-gradient(90deg,
+        transparent,
+        var(--primary-color),
+        var(--primary-color),
+        transparent
+    )30;
+}
+
+.nav li {
+   opacity: 0;
+   visibility: hidden;
+   position: relative;
+   list-style: none;
+   transform: translateY(-100px);
+    transition: 0.5s;
+}
+
+.nav.active li {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav li a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 1px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.nav li a:hover {
+    box-shadow: inset 0 0 20px rgba(0, 194, 222, 0.5);
+}
+
+.logo {
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+.logo img {
+    max-width: 200px;
+    filter: invert(1);
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.banner::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top : 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        rgba(0, 0, 0.1),
+        rgba(0, 0, 0.3),
+        rgba(0, 0, 0.6),
+        rgba(0, 0, 0.9),
+    );
+}
+
+.banner::before{
+    position: absolute;
+    content: "";
+    top: 25%;
+    left: 0;
+    width: 5px;
+    height: 40%;
+    background: linear-gradient(var(--primary-color),var(--primary-color), transparent);
+    z-index: 100;
+}
+
+/* Background Video */
+.banner .bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    object-position: center;
+}
+
+.banner .bg-video.active {
+    display: block;
+}
+
+/* Banner Content */
+.banner .content {
+    position: relative;
+    z-index: 100;
+    max-width: 700px;
+    padding-bottom: 200px;
+}
+
+.banner .content h1 {
+    font-family: sans-serif;
+    font-size: 10em;
+    color: #fff;
+    font-family: 500;
+    line-height: 0.8em;
+    letter-spacing: 5px;
+}
+
+.banner .content .model {
+    font-size: 4em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    display: none;
+}
+
+.banner .content .model.active {
+    display: block;
+}
+
+.banner .content p {
+    font-size: 200;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+
+.banner .content a {
+    position: relative;
+    width: 200px;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 50px;
+    background: transparent;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg,
+        transparent,
+        var(--primary-color),
+        var(--primary-color),
+        transparent
+    )30;
+    box-shadow: inset 0 0 20px rgba(0,194,222,0.5);
+    backdrop-filter: blur(20px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 300;
+    transition: 0.5s;
+    font-size: 1.1em;
+}
+
+.banner .content a:hover {
+    box-shadow: inset 0 0 40px rgba(0,194,222,0.8);
+}
+
+/* Screen */
+.banner .screen {
+    position: absolute;
+    right: 10%;
+    bottom: 100px;
+    width: 300px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: animate 30s linear infinite;
+    z-index: 100;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotateX(-30deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(-30deg) rotateY(360deg);
+    }
+}
+
+.shadow {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+    background: var(--primary-color);
+    filter: blur(20px);
+    transform: rotateX(-90deg) translateZ(150px);
+    box-shadow: 0 0 120px rgba(0,194,222,0.2),
+        0 0 120px rgba(0,194,222,0.4),
+        0 0 120px rgba(0,194,222,0.6),
+        0 0 120px rgba(0,194,222,0.8),
+        0 0 120px rgba(0,194,222,1);
+}
+
+.screen div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.screen div span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(transparent, var(--primary-color));
+    transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+}
+
+/* Screen Video */
+.screen div span video {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.trailer {
+    display: none;
+}
+
+.trailer.active {
+    display: block;
+}
+
+/* Banner Gallery */
+
+.banner .gallery {
+    position: absolute;
+    content: "";
+    left : 100px;
+    bottom: 0;
+    width: 55%;
+    height: 30%;
+    z-index: 100;
+    background: transparent;
+    box-shadow: 0px 10px 40px rgba(0,0,0,0.5), 0px -10px 40px rgba(0,0,0,0.5);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner .gallery::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 100%;
+    background: var(--primary-color);
+    filter: blur(15px);
+}
+
+.banner .gallery.carousel {
+    width: 100%;
+    height: 100%;
+}
+
+.banner .carousel-item {
+    width: 250px;
+    cursor: pointer;
+}
+
+.banner .carousel-item img {
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.banner .carousel-item h4 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.3em;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Social Icons */
+
+.sci {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sci li {
+    list-style: none;
+}
+
+.sci li a {
+    text-decoration: none;
+    color : #fff;
+    font-size: 1.2em;
+    transition: 0.3s;
+}
+
+.sci li a:hover {
+    color: var(--primary-color);
+}
+
+/* Video Play and Pause */
+.banner .play,
+.banner .pause {
+    display: none;
+    position: absolute;
+    left: 70%;
+    top : 50%;
+    transform: translate(-50%, -50%);
+    color: var(--primary-color);
+    font-size: 8em;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.banner .play.active {
+    display: block;
+}
+.banner .pause.active {
+    display: block;
+}
+.banner .play:hover,
+.banner .pause:hover {
+    opacity: 0.1;
+    color: #ffffff38;
+}
