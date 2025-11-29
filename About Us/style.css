@@ -1,0 +1,328 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{ 
+    --primary-color:#00c2de; 
+    --heading-color: #7aff3c;
+}
+body{
+    background-image: url(/bg_img.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ---------------- HEADER ---------------- */
+header{
+    position:absolute;
+    top:0; left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:30px 100px;
+    z-index:1000;
+}
+header::after{
+    position:absolute;
+    content:"";
+    top:50%; left:100px;
+    transform:translateY(-50%);
+    height:5px; width:40%;
+    background:linear-gradient(90deg,var(--primary-color),transparent);
+}
+header .year{
+    font-size:1rem; color:#fff;
+    letter-spacing:1px; font-weight:800;
+    margin-top:40px;
+}
+header .menu{
+    width:30px; height:30px;
+    background:url(/menu-3-fill.png) no-repeat center;
+    background-size:30px;
+    filter:invert(1);
+    cursor:pointer;
+}
+header .menu.active{
+    background:url(/close-line.png) no-repeat center;
+    background-size:30px;
+    filter:invert(1);
+}
+
+/* ---------------- NAVIGATION ---------------- */
+.nav{
+    z-index:200;
+    position:absolute;
+    top:0; 
+    right:100px;
+    width:30%; 
+    height:5px;
+    border-bottom:5px solid;
+    border-image:linear-gradient(
+        90deg,transparent,var(--primary-color),var(--primary-color)) 
+        30;
+    background:transparent;
+    box-shadow:0 0 40px rgba(0,0,0,0.5);
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+    backdrop-filter:blur(20px);
+    transition:1s; 
+    transform-origin:right;
+    gap: 100px;
+}
+.nav.active{
+    top:100px; 
+    width:40%; 
+    height:100px;
+    border-top:5px solid; 
+    border-bottom:none;
+    border-image:linear-gradient(
+        90deg,transparent,var(--primary-color),var(--primary-color),transparent) 
+        30;
+}
+.nav li{
+    list-style:none;
+    opacity:0; 
+    visibility:hidden;
+    transform:translateY(-100px);
+    transition:0.5s;
+}
+.nav.active li{
+    opacity:1; 
+    visibility:visible;
+    transform:translateY(0);
+}
+.nav li a{
+    text-decoration:none; 
+    color:#fff;
+    padding:5px 20px;
+    text-transform:uppercase;
+    font-weight:200; 
+    letter-spacing:1px;
+    transition:0.2s;
+}
+.nav li a:hover{
+    box-shadow:inset 0 0 20px rgba(0,194,222,0.5);
+}
+.logo img{
+    max-width:200px;
+    filter:invert(1);
+}
+
+/* ---------------- BANNER (FIXED HEIGHT) ---------------- */
+.banner{
+    position:relative;
+    width:100%;
+    height:auto;   /* FIXED */
+    padding:150px 100px 40px;
+    overflow:visible;
+    transition:0.5s;
+}
+.banner::after{
+    content:""; position:absolute;
+    top:0; left:0; width:100%; height:100%;
+    background:radial-gradient(
+        rgba(0,0,0,0.1),
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.9)
+    );
+    z-index:1;
+}
+.banner::before{
+    content:""; position:absolute;
+    top:25%; left:0; width:5px; height:40%;
+    background:linear-gradient(var(--primary-color),var(--primary-color),transparent);
+    z-index:100;
+}
+
+
+/*  ABOUT US SECTION STYLES */
+
+.hero{
+    position:relative;
+    width:100%; 
+    height:350px;
+    border-radius: 10px;
+    background:linear-gradient(#0009,#0009),
+        url("https://images.unsplash.com/photo-1605721911519-3df03d1190bd") center/cover;
+    margin-top:60px;
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+    z-index:10;
+}
+
+.hero-content{ 
+    text-align:center; 
+    color:#fff; 
+
+}
+.hero h1{ 
+    font-size: 5rem; 
+}
+
+.hero span{ 
+    color: var(--heading-color);
+    font-style: italic; 
+}
+
+.hero p{ 
+    color:#ddd; 
+    margin-top:10px;
+    font-weight: 500; 
+    font-size: 2.7vh;
+}
+
+
+.section{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px 5%;
+    gap:40px;
+}
+
+.section img{
+    width:400px; 
+    height:300px;
+    border-radius:12px;
+    object-fit:cover;
+}
+
+.section h2{
+    color: var(--heading-color);
+    font-size:10vh;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.section p{
+    font-size: 2.5vh;
+    color:#fff; 
+    line-height:1.6;
+    font-weight: 500;
+}
+
+
+/* .story{
+    padding:60px 5%;
+    text-align:center;
+}
+
+.story h2{ 
+    color:#7aff3c; 
+    font-size:2.5rem; 
+}
+
+.story p{ 
+    color:#ccc; 
+    max-width:800px; 
+    margin:auto; 
+}
+
+
+.story-gallery{
+    margin-top:30px;
+    display:flex; justify-content:center; gap:20px;
+}
+
+.story-gallery img{
+    width:280px; height:200px;
+    border-radius:10px;
+    object-fit:cover;
+} */
+
+.products{
+    padding:60px 5%;
+    text-align:center;
+}
+
+.products h2{
+    color: var(--heading-color);
+    font-size:5vw;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.products p {
+    color: #fff;
+    font-size: 2.5vh;
+    letter-spacing: .5px;
+}
+
+.product-grid{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+
+
+.card{
+    background:#141618;
+    padding:20px; border-radius:12px;
+}
+
+.card img{
+    width:100%; height:180px;
+    object-fit:cover; border-radius:10px;
+}
+
+.card h3{ 
+    color:#fff; 
+    margin-top:10px; 
+}
+
+.card p{ 
+    color:#ccc; 
+}
+
+
+.team{
+    padding:60px 5%;
+    text-align:center;
+}
+
+.team h2{
+    color: var(--heading-color); 
+    font-size: 10vh;
+    font-weight: 600;
+}
+
+.team-grid{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.team-card{
+    background: transparent;
+    padding:20px; 
+    /* border-radius:12px; */
+}
+
+.team-card img{
+    width:100%; 
+    height: fit-content;
+    object-fit:cover;
+    border: 5px solid #222; 
+    border-radius: 50%;
+}
+
+.team-card h3{ 
+    color:#fff; 
+    margin:10px 0 5px; 
+    font-size: 25px;
+}
+
+.team-card p{ 
+    color:#ccc;
+ }
+

@@ -90,7 +90,7 @@ header .menu.active {
     backdrop-filter: blur(20px);
     transition: 1s;
     transform-origin: right;
-
+    gap : 100px
 }
     
 .nav.active {
