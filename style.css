@@ -1,3 +1,23 @@
+@font-face {
+    font-family: 'SCHABO';
+    src: url(./fonts/SCHABO.otf) format('opentype');
+    font-family: 'Quizlo';
+    src: url(./fonts/Quizlo.otf) format('truetype');
+    font-family: 'Lust';
+    src: url(./fonts/Lust.otf) format('opentype');
+    font-family: 'Salena';
+    src: url(./fonts/Salena.otf) format('opentype');
+    font-family: 'Korvo';
+    src: url(./fonts/Korvo.ttf) format('opentype');
+    font-family: 'KorvoHollow';
+    src: url(./fonts/KorvoHollow.ttf) format('opentype');
+    font-family: 'Bargain';
+    src: url(./fonts/Bargain.ttf) format('opentype');
+    font-family: 'Gibs';
+    src: url(./fonts/Gibs.otf) format('opentype');
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +29,7 @@
 }
 
 body{
-    background-color: #000000;
+    background-image: url(bg_img.png);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -142,12 +162,12 @@ header .menu.active {
 
 .logo {
     font-size: 30px;
-    color: whitesmoke;
 }
 
 .logo img {
-    max-width: 200px;
-    filter: invert(1);
+    max-width: 100px;
+    max-height: 80px;
+    margin-left: 100px;
 }
 
 /* Banner */
@@ -216,31 +236,32 @@ header .menu.active {
 }
 
 .banner .content h1 {
-    font-family: sans-serif;
-    font-size: 10em;
+    font-family: 'Gibs';
+    font-size: 5.5em;
     color: #fff;
-    font-family: 500;
     line-height: 0.8em;
     letter-spacing: 5px;
 }
 
 .banner .content .model {
-    font-size: 4em;
+    font-size: 4.5em;
     text-transform: uppercase;
     color: var(--primary-color);
     display: none;
+    margin-top: 10px;
 }
 
 .banner .content .model.active {
     display: block;
 }
 
-.banner .content p {
-    font-size: 200;
-    color: #fff;
+.banner .content .Intro-Text {
+    font-size: medium;
+    color: #ffffffd9;
     letter-spacing: 1px;
     margin-bottom: 50px;
 }
+
 
 .banner .content a {
     position: relative;
@@ -355,15 +376,15 @@ header .menu.active {
     width: 55%;
     height: 30%;
     z-index: 100;
-    background: transparent;
-    box-shadow: 0px 10px 40px rgba(0,0,0,0.5), 0px -10px 40px rgba(0,0,0,0.5);
-    backdrop-filter: blur(20px);
+    /* background: transparent; */
+    /* box-shadow: 0px 10px 40px rgba(0,0,0,0.5), 0px -10px 40px rgba(0,0,0,0.5); */
+    /* backdrop-filter: blur(20px); */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.banner .gallery::before {
+/* .banner .gallery::before {
     position: absolute;
     content: "";
     top: 0;
@@ -372,7 +393,7 @@ header .menu.active {
     width: 100%;
     background: var(--primary-color);
     filter: blur(15px);
-}
+} */
 
 .banner .gallery.carousel {
     width: 100%;
@@ -393,9 +414,10 @@ header .menu.active {
 .banner .carousel-item h4 {
     text-align: center;
     color: var(--primary-color);
-    font-size: 1.3em;
+    font-size: 15px;
     font-weight: 300;
     letter-spacing: 1px;
+    margin-top: -2px;
 }
 
 /* Social Icons */
@@ -453,4 +475,10 @@ header .menu.active {
 .banner .pause:hover {
     opacity: 0.1;
     color: #ffffff38;
+}
+
+.timage img {
+    height: 50vh;
+    width: 35vw;
+    margin-left: 50px;
 }

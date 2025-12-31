@@ -151,8 +151,9 @@ header .menu.active {
 }
 
 .logo img {
-    max-width: 200px;
-    filter: invert(1);
+    max-width: 100px;
+    max-height: 80px;
+    margin-left: 100px;
 }
 
 /* Banner */
@@ -508,6 +509,16 @@ header .menu.active {
 .contact-card .info i {
     color: var(--primary-color);
     font-size: 1.5rem;
+}
+
+
+
+.right img{
+    margin-left: 90px;
+    height: 450px;
+    width: 450px;
+    border-radius: 10px;
+    background: blur(10px);
 }
 
 .cta-btn {
